@@ -6,7 +6,8 @@ app = Flask(__name__)
 api=Api(app)
 
 # Connect to the database
-client = MongoClient('mongodb://localhost:27017')
+# client = MongoClient('mongodb://localhost:27017')
+client = MongoClient('mongodb+srv://<user-name>:<password>@cluster0.x18sgkj.mongodb.net/test')
 db = client['corider']
 collection = db['users']
 
@@ -110,4 +111,5 @@ class User(Resource):
 api.add_resource(User, '/users', '/users/<int:id>')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # app.run(debug=True)
+    app.run(host='0.0.0.0', port=8080)
